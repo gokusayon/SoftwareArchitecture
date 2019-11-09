@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:2.7-slim
+FROM python:3.7-slim
 #RUN apt-get install python-pip
 
 # Set the working directory to /app
@@ -17,4 +17,4 @@ EXPOSE 8080
 #ENV NAME App
 
 # Run app.py when the container launches
-CMD ["python", "final.py"]
+CMD ["python", "app.py"]
