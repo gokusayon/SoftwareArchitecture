@@ -33,6 +33,8 @@ def get_module_logger(name):
     logger.setLevel(logging.DEBUG)
     return logger
 
+logger = get_module_logger("safety_wrapper")
+
 class Rules:
     def ssh(self):
     	# Connect/ssh to an instance
@@ -67,33 +69,27 @@ rules = Rules()
 
 @app.route('/safety_wrapper/<string:type>')
 def is_valid_request(type):
-	global count,accepted ,last_rejected ,last_accepted ,rejected 
-	logger = get_module_logger("safety_wrapper") 
-
-	try:
-		if(count < 100):
-			count+=1
-			accepted+=1
-			last_rejected+=1
-			last_accepted=0
-			method = getattr(rules, type)
-			result = method()
-			count-=1
-			return result
-		else:			
-			rejected+=1
-			last_accepted+=1
-			last_rejected=0
-			return jsonify({'count': count,'error':'Unable to serve request right now. Please come again later.'})
-	except ValueError:
-		return "Error Accessing Network"
-
-	if last_rejected == 0:
-		print(" ============== rejected ==============")
-		logger.info(f"count : {count} , status : 'success', accepted : {accepted}, accepted : {rejected}, last_rejected : {last_rejected}, last_accepted : {last_accepted}")
-		return
-	print(f"count : {count} , status : 'success', accepted : {accepted}, accepted : {rejected}, last_rejected : {last_rejected}, last_accepted : {last_accepted}")
-	logger.info(f"count : {count} , status : 'success', accepted : {accepted}, accepted : {rejected}, last_rejected : {last_rejected}, last_accepted : {last_accepted}")
+    global count,accepted ,last_rejected ,last_accepted ,rejected
+    logger.info(f"Request Type : {type}, count : {count} , status : 'success', accepted : {accepted}, \
+rejected : {rejected}, last_rejected : {last_rejected}, last_accepted : {last_accepted}")
+    try:
+        if(count < 100):
+            count+=1
+            accepted+=1
+            last_rejected+=1
+            last_accepted=0
+            method = getattr(rules, type)
+            result = method()
+            count-=1
+            return result
+        else:			
+            rejected+=1
+            last_accepted+=1
+            last_rejected=0
+            return jsonify({'count': count,'error':'Unable to serve request right now. Please come again later.'})
+    except ValueError:
+        logger.error("Unable to serve request ...")
+        return "Error Accessing Network"
 
 @app.route('/ping')
 def ping():
@@ -101,7 +97,6 @@ def ping():
 
 @app.route('/set_count/<int:c>')
 def set_count(c):
-	logger = get_module_logger("set_count") 
 	global count
 	count = c
 	logger.info(f"count : {count} , status : 'success', accepted : {accepted}, accepted : {rejected}, last_rejected : {last_rejected}, last_accepted : {last_accepted}")

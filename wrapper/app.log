@@ -450,3 +450,42 @@ INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
 INFO:paramiko.transport:Authentication (publickey) successful!
 INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 18:50:18] "GET /safety_wrapper/ssh HTTP/1.1" 200 -
 INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 18:50:27] "GET /safety_wrapper/network HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:36:42] "GET /ping HTTP/1.1" 200 -
+INFO:safety_wrapper:Request Type : ssh
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:safety_wrapper:count : 0 , status : 'success', accepted : 1, accepted : 0, last_rejected : 1, last_accepted : 0
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:37:00] "GET /safety_wrapper/ssh HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+INFO:safety_wrapper:Request Type : ssh, count : 0 , status : 'success', accepted : 0,         rejected : 0, last_rejected : 0, last_accepted : 0
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:42:25] "GET /safety_wrapper/ssh HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+INFO:safety_wrapper:Request Type : ssh, count : 0 , status : 'success', accepted : 0,     rejected : 0, last_rejected : 0, last_accepted : 0
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:43:05] "GET /safety_wrapper/ssh HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+INFO:safety_wrapper:Request Type : ssh, count : 0 , status : 'success', accepted : 0, rejected : 0, last_rejected : 0, last_accepted : 0
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:43:47] "GET /safety_wrapper/ssh HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+INFO:safety_wrapper:Request Type : ssh, count : 0 , status : 'success', accepted : 0, rejected : 0, last_rejected : 0, last_accepted : 0
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:49:11] "GET /safety_wrapper/ssh HTTP/1.1" 200 -
+INFO:safety_wrapper:Request Type : ssh, count : 0 , status : 'success', accepted : 1, rejected : 0, last_rejected : 1, last_accepted : 0
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:49:14] "GET /safety_wrapper/ssh HTTP/1.1" 200 -
+INFO:safety_wrapper:Request Type : ssh, count : 0 , status : 'success', accepted : 2, rejected : 0, last_rejected : 2, last_accepted : 0
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:49:14] "GET /safety_wrapper/ssh HTTP/1.1" 200 -
+INFO:safety_wrapper:Request Type : ssh, count : 0 , status : 'success', accepted : 3, rejected : 0, last_rejected : 3, last_accepted : 0
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 21:49:18] "GET /safety_wrapper/ssh HTTP/1.1" 200 -

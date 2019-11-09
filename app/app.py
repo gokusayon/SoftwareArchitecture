@@ -19,10 +19,9 @@ def get_module_logger(name):
     logger.setLevel(logging.DEBUG)
     return logger
  
-logger = get_module_logger("client")
+logger = get_module_logger("python_app")
   
 def init_ssh_connection():
-	logger = get_module_logger("ssh") 
 	""" 
 	function to print cube of given num 
 	"""
@@ -33,8 +32,7 @@ def init_ssh_connection():
 	except ValueError:
 		logger.info(f"error -- ssh")
   
-def init_network_request(): 
-	logger = get_module_logger("network") 
+def init_network_request():
 	""" 
 	function to print square of given num 
 	"""
@@ -46,7 +44,6 @@ def init_network_request():
 		logger.info(f"error -- network")
   
 def init_http_request():
-	logger = get_module_logger("http") 
 	"""
 	function to print square of given num
 	"""
@@ -58,6 +55,7 @@ def init_http_request():
 
 def start_threads(): 
     # creating thread 
+    logger.info(f"Starting Threads")
     t1 = threading.Thread(target=init_ssh_connection, name='t1') 
     t2 = threading.Thread(target=init_network_request, name='t2')  
     t3 = threading.Thread(target=init_http_request, name='t3')   
@@ -66,11 +64,7 @@ def start_threads():
     t1.start() 
     t2.start() 
     t3.start() 
-  
-    # wait until all threads finish 
-    t1.join() 
-    t2.join() 
-    t3.join() 
+    
     # both threads completely executed 
     logger.info(f"Done!")
 
@@ -78,14 +72,14 @@ def start_threads():
 def initiate():
 	# Connect/ssh to an instance
 	start_threads()
-	
+	return jsonify({'status':'success'})
 
 
 @app.route('/ping')
 def ping():
-	return "Python Main App!!"
+	return jsonify({'status':'success', 'message': "Python Main App!!"})
 
 	
 if __name__ == '__main__':
    logging.basicConfig(filename='app.log',level=logging.INFO)
-   app.run(host='0.0.0.0', port=8080, debug=True)
+   app.run(host='0.0.0.0', port=8080)
