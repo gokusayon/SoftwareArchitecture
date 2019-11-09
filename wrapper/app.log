@@ -1,0 +1,229 @@
+INFO:werkzeug: * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:53:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:53:09] "GET /favicon.ico HTTP/1.1" 404 -
+ERROR:wrapper:Exception on /request [GET]
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "wrapper.py", line 9, in request
+    r = requests.get('http://ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080/ssh')
+NameError: global name 'requests' is not defined
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:53:17] "GET /request HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080
+DEBUG:requests.packages.urllib3.connectionpool:http://ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080 "GET /ssh HTTP/1.1" 200 5
+ERROR:wrapper:Exception on /request [GET]
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "wrapper.py", line 11, in request
+    return jsonify(r)
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/simplejson/__init__.py", line 369, in dumps
+    **kw).encode(obj)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 262, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 340, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 239, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <Response [200]> is not JSON serializable
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:54:50] "GET /request HTTP/1.1" 500 -
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080
+DEBUG:requests.packages.urllib3.connectionpool:http://ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080 "GET /ssh HTTP/1.1" 200 5
+ERROR:wrapper:Exception on /request [GET]
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "wrapper.py", line 11, in request
+    return jsonify(r)
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/simplejson/__init__.py", line 369, in dumps
+    **kw).encode(obj)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 262, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 340, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 239, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <Response [200]> is not JSON serializable
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:54:51] "GET /request HTTP/1.1" 500 -
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080
+DEBUG:requests.packages.urllib3.connectionpool:http://ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080 "GET /ssh HTTP/1.1" 200 5
+ERROR:wrapper:Exception on /request [GET]
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "wrapper.py", line 11, in request
+    return r
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/simplejson/__init__.py", line 369, in dumps
+    **kw).encode(obj)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 262, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 340, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib64/python2.7/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/usr/lib64/python2.7/site-packages/simplejson/encoder.py", line 239, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <Response [200]> is not JSON serializable
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:55:47] "GET /request HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-174-702
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080
+DEBUG:requests.packages.urllib3.connectionpool:http://ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080 "GET /ssh HTTP/1.1" 200 5
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:56:30] "GET /request HTTP/1.1" 500 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:56:30] "GET /request?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:56:30] "GET /request?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:56:30] "GET /request?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:56:31] "GET /request?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:56:31] "GET /request?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:56:32] "GET /request?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/ec2-user/SoftwareArchitecture/wrapper/wrapper.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 337-174-702
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080
+DEBUG:requests.packages.urllib3.connectionpool:http://ec2-52-66-158-41.ap-south-1.compute.amazonaws.com:8080 "GET /ssh HTTP/1.1" 200 5
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 13:57:04] "GET /request HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 131-651-684
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:36:57] "GET /request HTTP/1.1" 404 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:37:26] "GET /request HTTP/1.1" 404 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:37:55] "GET /request HTTP/1.1" 404 -
+DEBUG:paramiko.transport:starting thread (client mode): 0xc825c550
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.6.0
+DEBUG:paramiko.transport:Remote version/idstring: SSH-2.0-OpenSSH_7.4
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+DEBUG:paramiko.transport:kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com', 'aes128-cbc', 'aes192-cbc', 'aes256-cbc', 'blowfish-cbc', 'cast128-cbc', '3des-cbc'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com', 'aes128-cbc', 'aes192-cbc', 'aes256-cbc', 'blowfish-cbc', 'cast128-cbc', '3des-cbc'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: curve25519-sha256@libssh.org
+DEBUG:paramiko.transport:HostKey agreed: ssh-ed25519
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha2-256
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-ed25519 host key for ec2-13-233-3-116.ap-south-1.compute.amazonaws.com: b'87470d90106a12462e181216d1585146'
+DEBUG:paramiko.transport:Trying SSH key b'92f504cce5134684a5cf1273e6ad4e4a'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (publickey) failed.
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:38:04] "GET /ssh HTTP/1.1" 500 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:38:05] "GET /ssh?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:38:05] "GET /ssh?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:38:05] "GET /ssh?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:38:05] "GET /ssh?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:38:05] "GET /ssh?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:38:05] "GET /ssh?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/ec2-user/SoftwareArchitecture/wrapper/wrapper.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 131-651-684
+DEBUG:paramiko.transport:starting thread (client mode): 0xbcee8b10
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.6.0
+DEBUG:paramiko.transport:Remote version/idstring: SSH-2.0-OpenSSH_7.4
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+DEBUG:paramiko.transport:kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com', 'aes128-cbc', 'aes192-cbc', 'aes256-cbc', 'blowfish-cbc', 'cast128-cbc', '3des-cbc'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com', 'aes128-cbc', 'aes192-cbc', 'aes256-cbc', 'blowfish-cbc', 'cast128-cbc', '3des-cbc'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: curve25519-sha256@libssh.org
+DEBUG:paramiko.transport:HostKey agreed: ssh-ed25519
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha2-256
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-ed25519 host key for ec2-13-233-3-116.ap-south-1.compute.amazonaws.com: b'87470d90106a12462e181216d1585146'
+DEBUG:paramiko.transport:Trying SSH key b'92f504cce5134684a5cf1273e6ad4e4a'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (publickey) successful!
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:39:12] "GET /ssh HTTP/1.1" 500 -
+DEBUG:paramiko.transport:Received global request "hostkeys-00@openssh.com"
+DEBUG:paramiko.transport:Rejecting "hostkeys-00@openssh.com" global request from server.
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:39:12] "GET /ssh?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:39:12] "GET /ssh?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:39:12] "GET /ssh?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:39:12] "GET /ssh?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:39:12] "GET /ssh?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:39:13] "GET /ssh?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/ec2-user/SoftwareArchitecture/wrapper/wrapper.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 131-651-684
+INFO:werkzeug: * Detected change in '/home/ec2-user/SoftwareArchitecture/wrapper/wrapper.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 131-651-684
+DEBUG:paramiko.transport:starting thread (client mode): 0x7919e990
+DEBUG:paramiko.transport:Local version/idstring: SSH-2.0-paramiko_2.6.0
+DEBUG:paramiko.transport:Remote version/idstring: SSH-2.0-OpenSSH_7.4
+INFO:paramiko.transport:Connected (version 2.0, client OpenSSH_7.4)
+DEBUG:paramiko.transport:kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group-exchange-sha1', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'diffie-hellman-group1-sha1'] server key:['ssh-rsa', 'rsa-sha2-512', 'rsa-sha2-256', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com', 'aes128-cbc', 'aes192-cbc', 'aes256-cbc', 'blowfish-cbc', 'cast128-cbc', '3des-cbc'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com', 'aes128-cbc', 'aes192-cbc', 'aes256-cbc', 'blowfish-cbc', 'cast128-cbc', '3des-cbc'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+DEBUG:paramiko.transport:Kex agreed: curve25519-sha256@libssh.org
+DEBUG:paramiko.transport:HostKey agreed: ssh-ed25519
+DEBUG:paramiko.transport:Cipher agreed: aes128-ctr
+DEBUG:paramiko.transport:MAC agreed: hmac-sha2-256
+DEBUG:paramiko.transport:Compression agreed: none
+DEBUG:paramiko.transport:kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+DEBUG:paramiko.transport:Switch to new keys ...
+DEBUG:paramiko.transport:Adding ssh-ed25519 host key for ec2-13-233-3-116.ap-south-1.compute.amazonaws.com: b'87470d90106a12462e181216d1585146'
+DEBUG:paramiko.transport:Trying SSH key b'92f504cce5134684a5cf1273e6ad4e4a'
+DEBUG:paramiko.transport:userauth is OK
+INFO:paramiko.transport:Authentication (publickey) successful!
+DEBUG:paramiko.transport:[chan 0] Max packet in: 32768 bytes
+DEBUG:paramiko.transport:Received global request "hostkeys-00@openssh.com"
+DEBUG:paramiko.transport:Rejecting "hostkeys-00@openssh.com" global request from server.
+DEBUG:paramiko.transport:[chan 0] Max packet out: 32768 bytes
+DEBUG:paramiko.transport:Secsh channel 0 opened.
+DEBUG:paramiko.transport:[chan 0] Sesch channel 0 request ok
+DEBUG:paramiko.transport:[chan 0] EOF received (0)
+DEBUG:paramiko.transport:[chan 0] EOF sent (0)
+DEBUG:paramiko.transport:Dropping user packet because connection is dead.
+INFO:werkzeug:136.233.197.195 - - [09/Nov/2019 14:40:43] "GET /ssh HTTP/1.1" 200 -
