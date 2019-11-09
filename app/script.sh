@@ -1,4 +1,5 @@
+docker stop app
 docker rm app
-docker build --tag=app .
-docker run --name=app app
-docker run -p 8080:8080 app
+export cid=$(docker run -d -p 8080:8080 --name=app app)
+echo $cid
+exit 1

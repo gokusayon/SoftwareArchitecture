@@ -95,9 +95,9 @@ def is_valid_request(type):
 	print(f"count : {count} , status : 'success', accepted : {accepted}, accepted : {rejected}, last_rejected : {last_rejected}, last_accepted : {last_accepted}")
 	logger.info(f"count : {count} , status : 'success', accepted : {accepted}, accepted : {rejected}, last_rejected : {last_rejected}, last_accepted : {last_accepted}")
 
-@app.route('/')
+@app.route('/ping')
 def ping():
-	return "Ping Successfull!"
+	return "Python Wrapper!!"
 
 @app.route('/set_count/<int:c>')
 def set_count(c):
@@ -110,6 +110,6 @@ def set_count(c):
 	
 if __name__ == '__main__':
    logging.basicConfig(filename='app.log',level=logging.INFO)
-   app.run(host='0.0.0.0', port=80, debug=True)
+   app.run(host='0.0.0.0', port=8080)
 
 

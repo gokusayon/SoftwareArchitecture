@@ -83,7 +83,7 @@ def initiate():
 
 @app.route('/ping')
 def ping():
-	return "Hello World!"
+	return "Python Main App!!"
 
 	
 if __name__ == '__main__':
