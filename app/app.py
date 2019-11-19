@@ -70,9 +70,9 @@ def start_threads():
 
 @app.route('/initiate')
 def initiate():
-	# Connect/ssh to an instance
-	start_threads()
-	return jsonify({'status':'success'})
+  for i in range(10):
+    start_threads()
+  return jsonify({'status':'success'})
 
 
 @app.route('/ping')
