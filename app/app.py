@@ -2,9 +2,21 @@ from flask import Flask, jsonify
 import json, requests
 import threading
 import logging
+from AppInterface import AppInterface
 
 app = Flask(__name__)
 app.secret_key = 'key'
+
+class Req(AppInterface):
+	def get_ssh_params(self):
+		return self.hostname, self.username, self.pkey
+	def get_networkcall_params(self):
+		return self.hostname, self.port, self.param, self.body
+	def serialize(self):
+		if type == 'ssh':
+			return {'hostname': self.hostname,'username': self.username,'pkey': self.pkey}
+		else:
+			return {'hostname': self.hostname,'port': self.port,'param': self.param, 'body': self.body}
 
 def get_module_logger(name):
     """
@@ -26,8 +38,11 @@ def init_ssh_connection():
 	function to print cube of given num 
 	"""
 	try:
-		r = requests.get('http://ec2-52-66-158-41.ap-south-1.compute.amazonaws.com/safety_wrapper/ssh')
-		logger.info(f"Status Code : {r.status_code}")
+		req = Req('doSSH')
+		req.set_networkcall_params('http://www.google.com/search?q=software+architecture', 80)
+		print(req.serialize())
+		# r = requests.get('http://ec2-52-66-158-41.ap-south-1.compute.amazonaws.com/safety_wrapper/ssh')
+		logger.info(f"Req: {req.serialize()}")
 
 	except ValueError:
 		logger.info(f"error -- ssh")
@@ -70,9 +85,8 @@ def start_threads():
 
 @app.route('/initiate')
 def initiate():
-  for i in range(10):
-    start_threads()
-  return jsonify({'status':'success'})
+	init_ssh_connection()
+	return {'status' : 'success'}
 
 
 @app.route('/ping')
