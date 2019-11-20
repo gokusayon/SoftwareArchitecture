@@ -8,7 +8,7 @@ from abc import abstractmethod
 class AppInterface:
     def __init__(self, type):
         self.type = type
-    def set_ssh_params(self, hostname, username, pkey):
+    def set_ssh_params(self, hostname, username, pkey = None):
         self.hostname = hostname
         self.username = username
         self.pkey = pkey
@@ -32,8 +32,6 @@ class AppInterface:
     @abstractmethod
     def initialize(self):
         pass
+    @abstractmethod
     def serialize(self):
-        if type == 'ssh':
-            return {'hostname': self.hostname,'username': self.username,'pkey': self.pkey}
-        else:
-            return {'hostname': self.hostname,'port': self.port,'param': self.param, 'body': self.body }
+        pass

@@ -35,6 +35,7 @@ logger = get_module_logger("safety_wrapper")
 
 class AuthenticateRequests(AppInterface):
     def __init__(self):
+        self.threshold = 100
         self.count = 0
         self.accepted = 0
         self.last_rejected = 0
@@ -45,7 +46,7 @@ class AuthenticateRequests(AppInterface):
         # Connect/ssh to an instance
         try:
             # Here 'ubuntu' is user name and 'instance_ip' is public IP of EC2
-            logger.info(f"hostname : {self.hostname}, username : {self.username}")
+            #logger.info(f"hostname : {self.hostname}, username : {self.username}")
             client.connect(hostname=self.hostname, username=self.username, pkey=key)
     
             # Execute a command(cmd) after connecting/ssh to an instance
@@ -54,7 +55,7 @@ class AuthenticateRequests(AppInterface):
     
             # close the client connection once the job is done
             client.close()
-            return r
+            return r, 200
     
         except ValueError:
             return "error"
@@ -62,23 +63,39 @@ class AuthenticateRequests(AppInterface):
         # Connect/ssh to an instance
         try:
             r = requests.get(self.hostname);
-            return r.text
+            return r.text, r.status_code
     
         except ValueError:
             return "error"
 
     def initiate(self,json):        
-        #logger.info(f"Request Type : {self.type}, count : {self.count} , status : success, accepted : {self.accepted}, \
-        #    rejected : {self.rejected}, self.last_rejected : {self.last_rejected}, self.last_accepted : {self.last_accepted}")
+        
         try:
-            if json['type'] == 'network_call':
-                self.set_networkcall_params(json['hostname'],json['port'])
-            else:
-                #logger.info(f"hostname : {json['hostname']}, username : {json['username']}")
-                self.set_ssh_params(json['hostname'], json['username'])
-            method = getattr(self, json['type'])
-            result = method()
-            return result
+            if(self.count < self.threshold):
+                self.count+=1
+                self.accepted+=1
+                self.last_rejected+=1
+                self.last_accepted=0
+
+                if json['type'] == 'network_call':
+                    self.set_networkcall_params(json['hostname'],json['port'])
+                else:
+                    #logger.info(f"hostname : {json['hostname']}, username : {json['username']}")
+                    self.set_ssh_params(json['hostname'], json['username'])
+                method = getattr(self, json['type'])
+                result, status_code = method()
+                
+                logger.info(f"Count : {self.count}")
+                logger.info(f"Request Type : {json['type']}, total : {self.count} , status : {status_code}, accepted count: {self.accepted}, rejected count : {self.rejected}, Last Rejected : {self.last_rejected}, Last Accepeted : {self.last_accepted}")
+                self.count-=1
+                logger.info(f"Count : {self.count}")
+                return result
+            else:           
+                self.rejected+=1
+                self.last_accepted+=1
+                self.last_rejected=0
+                return jsonify({'self.count': self.count,'error':'Unable to serve request right now. Please come again later.'})
+            
         except ValueError:
             logger.error("Unable to serve request ...")
             return "Error Accessing Network"
@@ -100,10 +117,10 @@ def ping():
 
 @app.route('/set_count/<int:c>')
 def set_count(c):
-	auth.count = c
-	logger.info(f"count : {auth.count}, status : success, accepted : {auth.accepted}, \
+	auth.threshold = c
+	logger.info(f"count : {auth.threshold}, status : success, accepted : {auth.accepted}, \
             rejected : {auth.rejected}, auth.last_rejected : {auth.last_rejected}, auth.last_accepted : {auth.last_accepted}")
-	return jsonify({'count': auth.count,'success':'Count value updated successfully.'})
+	return jsonify({'count': auth.threshold,'success':'Count value updated successfully.'})
 
 def has_no_empty_params(rule):
     defaults = rule.defaults if rule.defaults is not None else ()
