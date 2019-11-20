@@ -7,3 +7,10 @@ Now consider another container that acts as a safety wrapper of this application
 
 * Describe the architecture using appropriate views.
 * Dynamics Show and describe the most important usage scenario using a sequence diagram
+
+### Running the application
+#### You will need:
+- python3
+- docker
+
+To execute the program, go to `scripts/` and run `sh run-scripts.sh` from the command line.
