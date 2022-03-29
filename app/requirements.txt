@@ -1,5 +1,5 @@
 boto3==1.10.14
 Flask==1.1.1
-paramiko==2.6.0
+paramiko==2.10.1
 pexpect==4.7.0
 requests==2.6.0
